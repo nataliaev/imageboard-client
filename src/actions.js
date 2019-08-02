@@ -2,7 +2,7 @@ import request from 'superagent'
 
 export const ALL_IMAGES = 'ALL_IMAGES'
 
-const baseUrl = 'https://mighty-sea-90292.herokuapp.com/' || 'http://localhost:4000'
+const baseUrl = 'https://mighty-sea-90292.herokuapp.com' || 'http://localhost:4000'
 
 function allImages (payload) {
   return {
