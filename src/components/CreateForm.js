@@ -1,11 +1,14 @@
 import React from 'react'
+import './Form.css'
 
 export default class CreateForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.onSubmit}>
+        <form className="form" onSubmit={this.props.onSubmit}>
+          <h2 className="form-title">Add a photo</h2>
           <input
+            className="input-form"
             type="text"
             name="title"
             placeholder="title"
@@ -13,6 +16,7 @@ export default class CreateForm extends React.Component {
             onChange={this.props.onChange}
           />
           <input
+            className="input-form"
             type="text"
             name="url"
             placeholder="url"
@@ -20,6 +24,7 @@ export default class CreateForm extends React.Component {
             onChange={this.props.onChange}
           />
           <input
+            className="input-button"
             type="submit"
             value="Submit"
           />

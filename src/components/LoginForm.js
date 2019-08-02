@@ -1,11 +1,14 @@
 import React from 'react'
+import './Form.css'
 
 export default class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.onSubmit}>
+        <form className="form" onSubmit={this.props.onSubmit}>
+          <h2 className="form-title">Log in to add a photo</h2>
           <input
+            className="input-form"
             type="text"
             name="email"
             placeholder="email"
@@ -13,6 +16,7 @@ export default class LoginForm extends React.Component {
             onChange={this.props.onChange}
           />
           <input
+            className="input-form"
             type="password"
             name="password"
             placeholder="password"
@@ -20,6 +24,7 @@ export default class LoginForm extends React.Component {
             onChange={this.props.onChange}
           />
           <input
+            className="input-button"
             type="submit"
             value="Submit"
           />
