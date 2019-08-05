@@ -2,7 +2,9 @@ import request from 'superagent'
 
 export const ALL_IMAGES = 'ALL_IMAGES'
 
-const baseUrl = 'https://mighty-sea-90292.herokuapp.com' || 'http://localhost:4000'
+const baseUrl = 'http://localhost:4000'
+
+//const baseUrl = 'https://mighty-sea-90292.herokuapp.com' || 'http://localhost:4000'
 
 function allImages (payload) {
   return {
@@ -71,4 +73,27 @@ export const login = (email, password) => dispatch => {
       dispatch(action)
     })
     .catch(console.error)
+}
+
+export const ADD_LIKE = 'ADD_LIKE'
+
+function addLike (id, payload) {
+  return {
+    type: ADD_LIKE,
+    payload,
+    id
+  }
+}
+
+export const likes = (id, data) => (dispatch, getState) => {
+
+  request
+    .put(`${baseUrl}/image/${id}`)
+    .send({likes : data})
+    .then(() => {
+      const action = addLike(id, data)
+
+      dispatch(action)
+    }
+  )
 }
