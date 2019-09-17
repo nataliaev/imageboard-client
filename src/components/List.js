@@ -4,19 +4,18 @@ import LoginFormContainer from './LoginFormContainer';
 
 import './List.css'
 
-export default class List extends React.Component {
-  render() {
+export default function List ({user, images, onClick}) {
     return (
       <div>
-        {!this.props.user ? <LoginFormContainer /> : <CreateFormContainer />}
+        {!user ? <LoginFormContainer /> : <CreateFormContainer />}
         <div className="gallery-image">
-          {this.props.images.map(image =>
+          {images.map(image =>
             <div className="img-box" key={image.id}>
               <img className="city-photo" src={image.url} alt={image.title} />
               <div className="transparent-box">
                 <div className="caption">
                   <p>{image.title}</p>
-                  <button className="like-button" value={image.id} onClick={this.props.onClick}>Like</button>
+                  <button className="like-button" value={image.id} onClick={onClick}>Like</button>
                   <p>Likes: {image.likes}</p>
                 </div>
               </div>
@@ -26,4 +25,3 @@ export default class List extends React.Component {
       </div>
     )
   }
-}
