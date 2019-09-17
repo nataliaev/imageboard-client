@@ -1,27 +1,26 @@
 import React from 'react'
 import './Form.css'
 
-export default class CreateForm extends React.Component {
-  render() {
+export default function CreateForm ({onSubmit, onChange, values}) {
     return (
       <div>
-        <form className="form" onSubmit={this.props.onSubmit}>
+        <form className="form" onSubmit={onSubmit}>
           <h2 className="form-title">Add a photo</h2>
           <input
             className="input-form"
             type="text"
             name="title"
             placeholder="title"
-            value={this.props.values ? this.props.values.title : null}
-            onChange={this.props.onChange}
+            value={values ? values.title : null}
+            onChange={onChange}
           />
           <input
             className="input-form"
             type="text"
             name="url"
             placeholder="url"
-            value={this.props.values ? this.props.values.url : null}
-            onChange={this.props.onChange}
+            value={values ? values.url : null}
+            onChange={onChange}
           />
           <input
             className="input-button"
@@ -32,4 +31,3 @@ export default class CreateForm extends React.Component {
       </div>
     )
   }
-}

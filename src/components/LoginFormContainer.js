@@ -6,12 +6,12 @@ import { login } from '../actions'
 class LoginFormContainer extends React.Component {
   state = { email: '', password: '' }
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault()
     this.props.login(this.state.email, this.state.password)
   }
 
-  onChange = (event) => {
+  onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
