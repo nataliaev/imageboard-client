@@ -10,8 +10,7 @@ class ListContainer extends React.Component {
 
   onClick = (event) => {
     event.preventDefault()
-    const imageLikes = this.props.images.find(image => image.id === parseInt(event.target.value)).likes + 1
-    this.props.likes(event.target.value, imageLikes)
+    this.props.likes(event.target.value)
   }
 
   render() {

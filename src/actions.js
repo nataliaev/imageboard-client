@@ -2,7 +2,9 @@ import request from 'superagent'
 
 export const ALL_IMAGES = 'ALL_IMAGES'
 
-const baseUrl = 'https://safe-sea-63608.herokuapp.com' || 'http://localhost:4000'
+const baseUrl = 'http://localhost:4000'
+
+//'https://safe-sea-63608.herokuapp.com' || 
 
 function allImages (payload) {
   return {
@@ -61,6 +63,15 @@ function newLogin (payload) {
   }
 }
 
+export const SET_FAVORITES = "SET_FAVORITES"
+
+function setFavorites (payload) {
+  return {
+    type: SET_FAVORITES,
+    payload
+  }
+}
+
 export const login = (email, password) => dispatch => {
   const payload = {email, password}
   request
@@ -69,6 +80,8 @@ export const login = (email, password) => dispatch => {
     .then(response => {
       const action = newLogin(response.body.jwt)
       dispatch(action)
+      const actionFavorites = setFavorites(response.body.favorites)
+      dispatch(actionFavorites)
     })
     .catch(console.error)
 }
@@ -78,20 +91,37 @@ export const ADD_LIKE = 'ADD_LIKE'
 function addLike (id, payload) {
   return {
     type: ADD_LIKE,
-    payload,
-    id
+    id,
+    payload
   }
 }
 
-export const likes = (id, data) => (dispatch, getState) => {
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+
+function addFavorite (payload) {
+  return {
+    type: ADD_FAVORITE,
+    payload
+  }
+}
+
+export const likes = (id) => (dispatch, getState) => {
+  const state = getState()
+  const { user } = state
 
   request
-    .put(`${baseUrl}/image/${id}`)
-    .send({likes : data})
+    .post(`${baseUrl}/like`)
+    .set('Authorization', `Bearer ${user}`)
+    .send({
+      like : 1,
+      imageId : id,
+      user
+      })
     .then(() => {
-      const action = addLike(id, data)
-
+      const action = addLike(id, "new_like")
       dispatch(action)
+      const actionFavorites = addFavorite(id)
+      dispatch(actionFavorites)
     }
   )
 }
