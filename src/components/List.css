@@ -70,3 +70,7 @@
 .opacity-low {
   opacity: 0.5;
 }
+
+.like-button {
+  border-radius: 10px;
+}

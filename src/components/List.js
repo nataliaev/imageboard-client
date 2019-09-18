@@ -15,8 +15,7 @@ export default function List ({user, images, onClick}) {
               <div className="transparent-box">
                 <div className="caption">
                   <p>{image.title}</p>
-                  <button className="like-button" value={image.id} onClick={onClick}>Like</button>
-                  <p>Likes: {image.likes}</p>
+                  <button className="like-button" value={image.id} onClick={onClick}>&hearts; Like | {image.likes}</button>
                 </div>
               </div>
             </div>
