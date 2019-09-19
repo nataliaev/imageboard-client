@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import store from './store'
-import { Provider } from 'react-redux'
-import ListContainer from './components/ListContainer'
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import ListContainer from "./components/ListContainer";
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <ListContainer />
-      </Provider>
+      <div>
+        <Route exact path="/" component={ListContainer} />
+      </div>
     );
   }
 }
 
-export default App
+export default App;

@@ -1,8 +1,8 @@
 import request from "superagent";
 
-export const ALL_IMAGES = "ALL_IMAGES";
+const baseUrl =  'https://safe-sea-63608.herokuapp.com' || "http://localhost:4000";
 
-const baseUrl = 'https://safe-sea-63608.herokuapp.com' || "http://localhost:4000";
+export const ALL_IMAGES = "ALL_IMAGES";
 
 function allImages(payload) {
   return {
@@ -28,10 +28,11 @@ export const getImages = () => (dispatch, getState) => {
 
 export const NEW_IMAGE = "NEW_IMAGE";
 
-function newImage(payload) {
+function newImage(image) {
+  const {id, url, title, createdAt, updatedAt} = image
   return {
     type: NEW_IMAGE,
-    payload
+    payload: {id, url, title, createdAt, updatedAt, users : []}
   };
 }
 

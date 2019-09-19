@@ -74,3 +74,14 @@
 .like-button {
   border-radius: 10px;
 }
+
+.likes-displayed {
+  font-size: 18px;
+  display: inline-block;
+}
+
+.heart {
+  color : red;
+  font-size: 25px;
+  display: inline;
+}

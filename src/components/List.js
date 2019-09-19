@@ -4,9 +4,21 @@ import LoginFormContainer from "./LoginFormContainer";
 
 import "./List.css";
 
-const LikeButtons = ({ favorites, image, onClickLike, onClickDislike }) => {
+const LikeButtons = ({
+  favorites,
+  image,
+  onClickLike,
+  onClickDislike,
+  user
+}) => {
   if (image.users) {
-    if (favorites && favorites.length > 0) {
+    if (!user) {
+      return (
+        <div className="likes-displayed">
+          <p className="heart">&hearts;</p> {image.users.length}
+        </div>
+      );
+    } else if (favorites && favorites.length > 0) {
       const thisImage = favorites.find(element => image.id === element.id);
       if (thisImage) {
         return (
@@ -26,7 +38,11 @@ const LikeButtons = ({ favorites, image, onClickLike, onClickDislike }) => {
       </button>
     );
   } else {
-    return <div>Loading...</div>
+    return (
+      <button className="like-button" value={image.id} onClick={onClickLike}>
+        &hearts; Like | 0
+      </button>
+    );
   }
 };
 
@@ -52,6 +68,7 @@ export default function List({
                   image={image}
                   onClickLike={onClickLike}
                   onClickDislike={onClickDislike}
+                  user={user}
                 />
               </div>
             </div>
