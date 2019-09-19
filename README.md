@@ -15,7 +15,7 @@
 
 - You can see images of the cities with the names and the number of likes they have.
 - You can add new photos to the imageboard.
-- You can add a like a photo (will add it to your favorites).
+- You can add or delete a like to a photo (will add/delete it to/from your favorites).
 - You need to log in to add or like a photo.
 - You can see your favorite photos on your personal imageboard.
 
