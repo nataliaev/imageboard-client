@@ -1,4 +1,4 @@
-import { NEW_IMAGE, ADD_LIKE } from "../actions";
+import { NEW_IMAGE, ADD_LIKE, DELETE_LIKE } from "../actions";
 
 export default function(state = [], action = {}) {
   switch (action.type) {
@@ -9,7 +9,15 @@ export default function(state = [], action = {}) {
     case ADD_LIKE:
       return state.map(image => {
         if (image.id === parseInt(action.id)) {
-          image.likes = action.payload;
+          image.users = [...image.users, action.payload];
+        }
+        return image;
+      });
+    case DELETE_LIKE:
+      return state.map(image => {
+        if (image.id === parseInt(action.payload)) {
+          image.users.pop()
+          return image;
         }
         return image;
       });
