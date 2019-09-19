@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
 
@@ -55,7 +56,16 @@ export default function List({
 }) {
   return (
     <div>
-      {!user ? <LoginFormContainer /> : <CreateFormContainer />}
+      {!user ? (
+        <LoginFormContainer />
+      ) : (
+        <div>
+          <Link to="/favorites">
+            <button className="input-button">My favorite cities</button>
+          </Link>
+          <CreateFormContainer />
+        </div>
+      )}
       <div className="gallery-image">
         {images.map(image => (
           <div className="img-box" key={image.id}>
