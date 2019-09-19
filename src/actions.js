@@ -2,9 +2,7 @@ import request from "superagent";
 
 export const ALL_IMAGES = "ALL_IMAGES";
 
-const baseUrl = "http://localhost:4000";
-
-//'https://safe-sea-63608.herokuapp.com' ||
+const baseUrl = 'https://safe-sea-63608.herokuapp.com' || "http://localhost:4000";
 
 function allImages(payload) {
   return {
