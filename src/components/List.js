@@ -26,7 +26,11 @@ const LikeButtons = ({ favorites, image, onClickLike, onClickDislike }) => {
       </button>
     );
   } else {
-    return <div>Loading...</div>
+    return (
+      <button className="like-button" value={image.id} onClick={onClickLike}>
+        &hearts; Like | 0
+      </button>
+    );
   }
 };
 

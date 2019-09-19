@@ -1,8 +1,8 @@
-import { NEW_IMAGE, ADD_LIKE, DELETE_LIKE } from "../actions";
+import { NEW_IMAGE, ADD_LIKE, DELETE_LIKE, ALL_IMAGES } from "../actions";
 
 export default function(state = [], action = {}) {
   switch (action.type) {
-    case "ALL_IMAGES":
+    case ALL_IMAGES:
       return action.payload;
     case NEW_IMAGE:
       return [action.payload, ...state];
