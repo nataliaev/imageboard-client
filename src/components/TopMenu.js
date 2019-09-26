@@ -5,9 +5,11 @@ import LoginFormContainer from "./LoginFormContainer";
 
 function LogInButton({ showLogInForm }) {
   return (
-    <button className="input-button" onClick={showLogInForm}>
-      Log in
-    </button>
+    <div className="menu-bar">
+      <button className="input-button" onClick={showLogInForm}>
+        Log in
+      </button>
+    </div>
   );
 }
 
@@ -17,6 +19,14 @@ function MyFavoritesButton() {
       <button className="input-button">My favorite cities</button>
     </Link>
   );
+}
+
+function MyTravelPlanner() {
+  return (
+    <Link to="/travel-planner">
+      <button className="input-button">My travel planner</button>
+    </Link>
+  )
 }
 
 function AddImageButton({ showImageForm }) {
@@ -50,16 +60,22 @@ export default function TopMenu({
     if (addingImage === true) {
       return (
         <div>
-          <MyFavoritesButton />
-          <AddImageButton showImageForm={showImageForm} />
+          <div className="menu-bar">
+            <MyFavoritesButton />
+            <MyTravelPlanner />
+            <AddImageButton showImageForm={showImageForm} />
+          </div>
           <CreateFormContainer />
         </div>
       );
     } else {
       return (
         <div>
-          <MyFavoritesButton />
-          <AddImageButton showImageForm={showImageForm} />
+          <div className="menu-bar">
+            <MyFavoritesButton />
+            <MyTravelPlanner />
+            <AddImageButton showImageForm={showImageForm} />
+          </div>
         </div>
       );
     }

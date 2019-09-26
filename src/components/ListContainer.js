@@ -36,9 +36,9 @@ class ListContainer extends React.Component {
 
   showImageForm = () => {
     this.setState({
-      addingImage : !this.state.addingImage
-    })
-  }
+      addingImage: !this.state.addingImage
+    });
+  };
 
   render() {
     return (

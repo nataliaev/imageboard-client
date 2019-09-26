@@ -5,7 +5,6 @@ export default function CreateForm ({onSubmit, onChange, values}) {
     return (
       <div>
         <form className="form" onSubmit={onSubmit}>
-          <h2 className="form-title">Add a photo</h2>
           <input
             className="input-form"
             type="text"

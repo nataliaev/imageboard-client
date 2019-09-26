@@ -30,9 +30,11 @@ class FavoritesListContainer extends React.Component {
 
     return (
       <div>
-        <Link to="/">
-          <button className="input-button">Main page</button>
-        </Link>
+        <div className="menu-bar">
+          <Link to="/">
+            <button className="input-button">Main page</button>
+          </Link>
+        </div>
         <h1 className="favorites">My favorite Cities</h1>
         <List
           images={listOfFavorites}
