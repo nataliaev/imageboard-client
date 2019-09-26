@@ -85,3 +85,10 @@
   font-size: 25px;
   display: inline;
 }
+
+.favorites {
+  color: aliceblue;
+  text-align: center;
+  font-family: 'Mansalva', cursive;
+  font-size: 50px;
+}

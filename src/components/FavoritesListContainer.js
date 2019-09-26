@@ -1,6 +1,7 @@
 import React from "react";
 import { getImages, likes, dislikes } from "../actions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import List from "./List";
 
 class FavoritesListContainer extends React.Component {
@@ -10,27 +11,37 @@ class FavoritesListContainer extends React.Component {
 
   onClickLike = event => {
     event.preventDefault();
-    const newFavoriteImage = this.props.images.find(image => image.id === parseInt(event.target.value))
+    const newFavoriteImage = this.props.images.find(
+      image => image.id === parseInt(event.target.value)
+    );
     this.props.likes(event.target.value, newFavoriteImage);
   };
 
   onClickDislike = event => {
     event.preventDefault();
     this.props.dislikes(event.target.value);
-  }
+  };
 
   render() {
-    const favoriteIds = this.props.favorites.map(image => parseInt(image.id))
-    const listOfFavorites = this.props.images.filter(image => favoriteIds.includes(parseInt(image.id)))
+    const favoriteIds = this.props.favorites.map(image => parseInt(image.id));
+    const listOfFavorites = this.props.images.filter(image =>
+      favoriteIds.includes(parseInt(image.id))
+    );
 
     return (
-      <List
-        images={listOfFavorites}
-        user={this.props.user}
-        favorites={this.props.favorites}
-        onClickLike={this.onClickLike}
-        onClickDislike={this.onClickDislike}
-      />
+      <div>
+        <Link to="/">
+          <button className="input-button">Main page</button>
+        </Link>
+        <h1 className="favorites">My favorite Cities</h1>
+        <List
+          images={listOfFavorites}
+          user={this.props.user}
+          favorites={this.props.favorites}
+          onClickLike={this.onClickLike}
+          onClickDislike={this.onClickDislike}
+        />
+      </div>
     );
   }
 }
