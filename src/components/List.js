@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import CreateFormContainer from "./CreateFormContainer";
-import LoginFormContainer from "./LoginFormContainer";
 
 import "./List.css";
 
@@ -47,25 +44,18 @@ const LikeButtons = ({
   }
 };
 
-export default function List({
-  user,
-  images,
-  onClickLike,
-  onClickDislike,
-  favorites
-}) {
+export default function List(props) {
+  const {
+    user,
+    images,
+    onClickLike,
+    onClickDislike,
+    favorites
+  } = props;
+
   return (
     <div>
-      {!user ? (
-        <LoginFormContainer />
-      ) : (
-        <div>
-          <Link to="/favorites">
-            <button className="input-button">My favorite cities</button>
-          </Link>
-          <CreateFormContainer />
-        </div>
-      )}
+      
       <div className="gallery-image">
         {images.map(image => (
           <div className="img-box" key={image.id}>

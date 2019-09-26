@@ -5,7 +5,6 @@ export default function LoginForm ({ onSubmit, onChange, values }) {
     return (
       <div>
         <form className="form" onSubmit={onSubmit}>
-          <h2 className="form-title">Log in to add a photo</h2>
           <input
             className="input-form"
             type="text"
