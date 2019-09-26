@@ -18,6 +18,7 @@
 - You can add or delete a like to a photo (will add/delete it to/from your favorites).
 - You need to log in to add or like a photo.
 - You can see your favorite photos on your personal imageboard.
+- You can sort your favorite cities to "Visited" and "Plan to go" using Drag and Drop
 
 ## Installation
 
