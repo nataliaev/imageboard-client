@@ -30,7 +30,8 @@ class ListContainer extends React.Component {
 
   showLogInForm = () => {
     this.setState({
-      loggingIn: !this.state.loggingIn
+      loggingIn: !this.state.loggingIn,
+      signingUp: false
     });
   };
 
@@ -39,6 +40,13 @@ class ListContainer extends React.Component {
       addingImage: !this.state.addingImage
     });
   };
+
+  showSignUpForm = () => {
+    this.setState({
+      loggingIn: false,
+      signingUp: !this.state.signingUp
+    });
+  }
 
   render() {
     return (
@@ -50,6 +58,7 @@ class ListContainer extends React.Component {
           signingUp={this.state.signingUp}
           showLogInForm={this.showLogInForm}
           showImageForm={this.showImageForm}
+          showSignUpForm={this.showSignUpForm}
         />
         <h1 className="favorites">Wich one do you like the most?</h1>
         <List

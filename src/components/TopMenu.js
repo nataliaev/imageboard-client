@@ -2,12 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
+import SignUpFormContainer from "./SignUpFormContainer"
 
-function LogInButton({ showLogInForm }) {
+function LogInButton({ showLogInForm, showSignUpForm }) {
   return (
     <div className="menu-bar">
       <button className="input-button" onClick={showLogInForm}>
         Log in
+      </button>
+      <button className="input-button" onClick={showSignUpForm}>
+        Sign Up
       </button>
     </div>
   );
@@ -43,18 +47,26 @@ export default function TopMenu({
   loggingIn,
   signingUp,
   showLogInForm,
-  showImageForm
+  showImageForm,
+  showSignUpForm
 }) {
   if (!user) {
     if (loggingIn === true) {
       return (
         <div>
-          <LogInButton showLogInForm={showLogInForm} />
+          <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />
           <LoginFormContainer />
         </div>
       );
+    } else if (signingUp === true) {
+      return (
+        <div>
+          <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />
+          <SignUpFormContainer />
+        </div>
+      );
     } else {
-      return <LogInButton showLogInForm={showLogInForm} />;
+      return <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />;
     }
   } else {
     if (addingImage === true) {
