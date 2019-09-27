@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import List from "./List";
 import TopMenu from "./TopMenu";
 
+import HeaderText from './styles/HeaderText'
+
 class ListContainer extends React.Component {
   state = {
     addingImage: false,
@@ -60,7 +62,7 @@ class ListContainer extends React.Component {
           showImageForm={this.showImageForm}
           showSignUpForm={this.showSignUpForm}
         />
-        <h1 className="favorites">Wich one do you like the most?</h1>
+        <HeaderText>Wich one do you like the most?</HeaderText>
         <List
           images={this.props.images}
           user={this.props.user}

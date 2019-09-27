@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import List from "./List";
 
+import MenuBar from "./styles/MenuBar";
+import Button from "./styles/Button";
+import HeaderText from './styles/HeaderText'
+
 class FavoritesListContainer extends React.Component {
   componentDidMount() {
     this.props.getImages();
@@ -30,12 +34,12 @@ class FavoritesListContainer extends React.Component {
 
     return (
       <div>
-        <div className="menu-bar">
+        <MenuBar>
           <Link to="/">
-            <button className="input-button">Main page</button>
+            <Button>Main page</Button>
           </Link>
-        </div>
-        <h1 className="favorites">My favorite Cities</h1>
+        </MenuBar>
+        <HeaderText>My favorite Cities</HeaderText>
         <List
           images={listOfFavorites}
           user={this.props.user}

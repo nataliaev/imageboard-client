@@ -1,0 +1,21 @@
+import styled from "styled-components";
+
+export default styled.button`
+  -moz-box-shadow: inset 0px 1px 0px 0px #45d6d6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #45d6d6;
+  box-shadow: inset 0px 1px 0px 0px #45d6d6;
+  background-color: #2cbbbb;
+  border: 1px solid #27a0a0;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    background: linear-gradient(to bottom, #34caca 5%, #30c9c9 100%);
+    background-color: #34caca;
+  }
+`;

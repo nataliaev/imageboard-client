@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import TravelBoard from "./TravelBoard";
 import City from "./City";
 
+import HeaderText from "./styles/HeaderText";
+import MenuBar from "./styles/MenuBar";
+import Button from "./styles/Button";
+import Flexbox from "./styles/Flexbox";
+
 class TravelingPlanner extends React.Component {
   componentDidMount() {
     this.props.getImages();
@@ -18,15 +23,15 @@ class TravelingPlanner extends React.Component {
 
     return (
       <div>
-        <div className="menu-bar">
+        <MenuBar>
           <Link to="/">
-            <button className="input-button">Main page</button>
+            <Button>Main page</Button>
           </Link>
-        </div>
-        <h1 className="favorites">Choose your dream city!</h1>
-        <div className="flexbox">
+        </MenuBar>
+        <HeaderText>Choose your dream city!</HeaderText>
+        <Flexbox>
           <TravelBoard id="favorite" className="board">
-            <h1 className="favorites">Favorites</h1>
+            <HeaderText>Favorites</HeaderText>
             {listOfFavorites.map(image => (
               <City id={image.id} className="city" key={image.id}>
                 {image.title}
@@ -34,14 +39,14 @@ class TravelingPlanner extends React.Component {
             ))}
           </TravelBoard>
 
-          <TravelBoard id="visited" className="board">
-            <h1 className="favorites">Plan to go</h1>
+          <TravelBoard id="to-go" className="board">
+            <HeaderText>Plan to go</HeaderText>
           </TravelBoard>
 
           <TravelBoard id="visited" className="board">
-            <h1 className="favorites">Was already</h1>
+            <HeaderText>Was already</HeaderText>
           </TravelBoard>
-        </div>
+        </Flexbox>
       </div>
     );
   }
