@@ -1,6 +1,8 @@
 import React from "react";
 
-import "./List.css";
+import { ImgBox, Caption, TransparentBox, Image } from "./styles/ImgBox";
+import { Likes, Heart, LikeButton } from "./styles/Likes";
+import Gallery from "./styles/Gallery";
 
 const LikeButtons = ({
   favorites,
@@ -12,69 +14,56 @@ const LikeButtons = ({
   if (image.users) {
     if (!user) {
       return (
-        <div className="likes-displayed">
-          <p className="heart">&hearts;</p> {image.users.length}
-        </div>
+        <Likes>
+          <Heart>&hearts;</Heart> {image.users.length}
+        </Likes>
       );
     } else if (favorites && favorites.length > 0) {
       const thisImage = favorites.find(element => image.id === element.id);
       if (thisImage) {
         return (
-          <button
-            className="like-button"
-            value={image.id}
-            onClick={onClickDislike}
-          >
+          <LikeButton value={image.id} onClick={onClickDislike}>
             Unlike | {image.users.length}
-          </button>
+          </LikeButton>
         );
       }
     }
     return (
-      <button className="like-button" value={image.id} onClick={onClickLike}>
+      <LikeButton value={image.id} onClick={onClickLike}>
         &hearts; Like | {image.users.length}
-      </button>
+      </LikeButton>
     );
   } else {
     return (
-      <button className="like-button" value={image.id} onClick={onClickLike}>
+      <LikeButton value={image.id} onClick={onClickLike}>
         &hearts; Like | 0
-      </button>
+      </LikeButton>
     );
   }
 };
 
 export default function List(props) {
-  const {
-    user,
-    images,
-    onClickLike,
-    onClickDislike,
-    favorites
-  } = props;
+  const { user, images, onClickLike, onClickDislike, favorites } = props;
 
   return (
-    <div>
-      
-      <div className="gallery-image">
-        {images.map(image => (
-          <div className="img-box" key={image.id}>
-            <img className="city-photo" src={image.url} alt={image.title} />
-            <div className="transparent-box">
-              <div className="caption">
-                <p>{image.title}</p>
-                <LikeButtons
-                  favorites={favorites}
-                  image={image}
-                  onClickLike={onClickLike}
-                  onClickDislike={onClickDislike}
-                  user={user}
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Gallery>
+      {images.map(image => (
+        <ImgBox key={image.id}>
+          <Image src={image.url} alt={image.title} />
+          <TransparentBox>
+            <Caption>
+              <p>{image.title}</p>
+              <LikeButtons
+                favorites={favorites}
+                image={image}
+                onClickLike={onClickLike}
+                onClickDislike={onClickDislike}
+                user={user}
+              />
+            </Caption>
+          </TransparentBox>
+        </ImgBox>
+      ))}
+    </Gallery>
   );
 }

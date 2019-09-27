@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Board } from './styles/Board'
+
 function TravelBoard(props) {
   const drop = e => {
     e.preventDefault();
@@ -16,14 +18,13 @@ function TravelBoard(props) {
   };
 
   return (
-    <div
+    <Board
       id={props.id}
-      className={props.className}
       onDrop={drop}
       onDragOver={dragOver}
     >
       {props.children}
-    </div>
+    </Board>
   );
 }
 

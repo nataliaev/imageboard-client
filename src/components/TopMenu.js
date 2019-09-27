@@ -2,25 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
-import SignUpFormContainer from "./SignUpFormContainer"
+import SignUpFormContainer from "./SignUpFormContainer";
+
+import Button from "./styles/Button";
+import MenuBar from "./styles/MenuBar";
 
 function LogInButton({ showLogInForm, showSignUpForm }) {
   return (
-    <div className="menu-bar">
-      <button className="input-button" onClick={showLogInForm}>
-        Log in
-      </button>
-      <button className="input-button" onClick={showSignUpForm}>
-        Sign Up
-      </button>
-    </div>
+    <MenuBar>
+      <Button onClick={showLogInForm}>Log in</Button>
+      <Button onClick={showSignUpForm}>Sign Up</Button>
+    </MenuBar>
   );
 }
 
 function MyFavoritesButton() {
   return (
     <Link to="/favorites">
-      <button className="input-button">My favorite cities</button>
+      <Button>My favorite cities</Button>
     </Link>
   );
 }
@@ -28,17 +27,13 @@ function MyFavoritesButton() {
 function MyTravelPlanner() {
   return (
     <Link to="/travel-planner">
-      <button className="input-button">My travel planner</button>
+      <Button>My travel planner</Button>
     </Link>
-  )
+  );
 }
 
 function AddImageButton({ showImageForm }) {
-  return (
-    <button className="input-button" onClick={showImageForm}>
-      Add Photo
-    </button>
-  );
+  return <Button onClick={showImageForm}>Add Photo</Button>;
 }
 
 export default function TopMenu({
@@ -54,41 +49,50 @@ export default function TopMenu({
     if (loggingIn === true) {
       return (
         <div>
-          <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />
+          <LogInButton
+            showLogInForm={showLogInForm}
+            showSignUpForm={showSignUpForm}
+          />
           <LoginFormContainer />
         </div>
       );
     } else if (signingUp === true) {
       return (
         <div>
-          <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />
+          <LogInButton
+            showLogInForm={showLogInForm}
+            showSignUpForm={showSignUpForm}
+          />
           <SignUpFormContainer />
         </div>
       );
     } else {
-      return <LogInButton showLogInForm={showLogInForm} showSignUpForm={showSignUpForm} />;
+      return (
+        <LogInButton
+          showLogInForm={showLogInForm}
+          showSignUpForm={showSignUpForm}
+        />
+      );
     }
   } else {
     if (addingImage === true) {
       return (
         <div>
-          <div className="menu-bar">
+          <MenuBar>
             <MyFavoritesButton />
             <MyTravelPlanner />
             <AddImageButton showImageForm={showImageForm} />
-          </div>
+          </MenuBar>
           <CreateFormContainer />
         </div>
       );
     } else {
       return (
-        <div>
-          <div className="menu-bar">
-            <MyFavoritesButton />
-            <MyTravelPlanner />
-            <AddImageButton showImageForm={showImageForm} />
-          </div>
-        </div>
+        <MenuBar>
+          <MyFavoritesButton />
+          <MyTravelPlanner />
+          <AddImageButton showImageForm={showImageForm} />
+        </MenuBar>
       );
     }
   }

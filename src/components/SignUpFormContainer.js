@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { login } from "../actions";
 import request from "superagent";
 
-const baseUrl =  'https://safe-sea-63608.herokuapp.com' || "http://localhost:4000";
+const baseUrl = 'https://safe-sea-63608.herokuapp.com' || "http://localhost:4000";
 
 class SignUpFormContainer extends React.Component {
   state = { email: "", password: "" };
