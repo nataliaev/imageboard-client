@@ -30,7 +30,7 @@ class TravelingPlanner extends React.Component {
         </MenuBar>
         <HeaderText>Choose your dream city!</HeaderText>
         <Flexbox>
-          <TravelBoard id="favorite" className="board">
+          <TravelBoard id="favorite">
             <HeaderText>Favorites</HeaderText>
             {listOfFavorites.map(image => (
               <City id={image.id} className="city" key={image.id}>
@@ -39,11 +39,11 @@ class TravelingPlanner extends React.Component {
             ))}
           </TravelBoard>
 
-          <TravelBoard id="to-go" className="board">
+          <TravelBoard id="to-go">
             <HeaderText>Plan to go</HeaderText>
           </TravelBoard>
 
-          <TravelBoard id="visited" className="board">
+          <TravelBoard id="visited">
             <HeaderText>Was already</HeaderText>
           </TravelBoard>
         </Flexbox>

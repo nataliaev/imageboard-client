@@ -1,5 +1,7 @@
 import React from "react";
 
+import { CityDraggable } from './styles/Board'
+
 function City(props) {
   
   const dragStart = e => {
@@ -17,15 +19,14 @@ function City(props) {
   }
 
   return (
-    <div
+    <CityDraggable
       id={props.id}
-      className={props.className}
       draggable = "true"
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
       {props.children}
-    </div>
+    </CityDraggable>
   );
 }
 

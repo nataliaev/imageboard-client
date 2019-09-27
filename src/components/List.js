@@ -1,9 +1,8 @@
 import React from "react";
 
-import "./List.css";
 import { ImgBox, Caption, TransparentBox, Image } from "./styles/ImgBox";
 import { Likes, Heart, LikeButton } from "./styles/Likes";
-import Gallery from './styles/Gallery'
+import Gallery from "./styles/Gallery";
 
 const LikeButtons = ({
   favorites,
