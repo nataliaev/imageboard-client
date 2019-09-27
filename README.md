@@ -10,6 +10,7 @@
 -   [Redux](https://redux.js.org)
 -   [Superagent](http://visionmedia.github.io/superagent/)
 -   [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+-   [Styled Components](https://www.styled-components.com)
 
 ## Features
 
