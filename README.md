@@ -21,6 +21,8 @@
 - You can see your favorite photos on your personal imageboard.
 - You can sort your favorite cities to "Visited" and "Plan to go" using Drag and Drop
 
+![](Drag-and-Drop.gif)
+
 ## Installation
 
 ```
